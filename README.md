@@ -1,10 +1,10 @@
-# MiniProj1 — Currículo SPA
+# MiniProj1 - Currículo SPA
 
 Currículo pessoal de **Francisco Aragão Dias** desenvolvido como Single Page Application (SPA) em **Vue 3**, para a unidade curricular de Programação Web Avançada (Mestrado em Engenharia Informática e Tecnologia Web — UTAD / Universidade Aberta).
 
 ## Ver o resultado
 
-O ficheiro final está em [`docs/index.html`](docs/index.html): um **único ficheiro** com todo o HTML, CSS e JavaScript agregados. Basta abri-lo no navegador.
+O ficheiro final está em [`docs/index.html`](docs/index.html): um **único ficheiro** com todo o HTML, CSS e JavaScript agregados. Basta abri-lo no browser.
 
 ## Desenvolvimento
 
