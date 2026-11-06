@@ -4,6 +4,8 @@ Currículo pessoal de **Francisco Aragão Dias** desenvolvido como Single Page A
 
 ## Ver o resultado
 
+**Online:** https://xicoooooo.github.io/MiniProj1/ (GitHub Pages, servido a partir da pasta `docs/`)
+
 O ficheiro final está em [`docs/index.html`](docs/index.html): um **único ficheiro** com todo o HTML, CSS, JavaScript, fontes e imagens agregados. Basta abri-lo no browser (duplo clique), sem servidor nem ligação à internet.
 
 ## Funcionalidades
