@@ -8,11 +8,11 @@ const currentYear = new Date().getFullYear()
 <template>
   <footer class="border-t border-line">
     <div
-      class="mx-auto flex max-w-6xl flex-col-reverse items-center gap-4 px-4 py-6 sm:flex-row sm:justify-between sm:px-8"
+      class="mx-auto flex max-w-6xl flex-col-reverse items-center gap-4 px-4 pt-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:flex-row sm:justify-between sm:px-8"
     >
       <p class="text-sm text-muted">© {{ currentYear }} {{ profile.name }}</p>
 
-      <ul class="flex items-center gap-1" aria-label="Redes sociais">
+      <ul class="flex flex-wrap items-center justify-center gap-1" aria-label="Redes sociais">
         <li v-for="link in socialLinks" :key="link.id">
           <a
             v-if="link.url"

@@ -75,7 +75,7 @@ function hrefFor(id) {
       <button
         ref="menuButton"
         type="button"
-        class="-mr-2 grid size-11 place-items-center rounded-lg text-muted transition-colors hover:bg-raised hover:text-text md:hidden"
+        class="-mr-2 grid size-11 place-items-center rounded-lg text-muted transition-[color,background-color,scale] duration-150 hover:bg-raised hover:text-text active:scale-[0.94] active:bg-raised md:hidden"
         :aria-expanded="isMenuOpen"
         aria-controls="mobile-menu"
         :aria-label="isMenuOpen ? 'Fechar menu' : 'Abrir menu'"

@@ -15,7 +15,7 @@ const image = findImage(`projects/${props.project.id}`)
 <template>
   <!-- the whole card is clickable: the button's ::after covers the card (stretched button pattern) -->
   <article
-    class="group relative flex gap-4 rounded-xl border border-line bg-surface p-4 transition-colors duration-200 hover:border-muted/50 hover:bg-raised has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-accent sm:p-5"
+    class="group relative flex gap-4 rounded-xl border border-line bg-surface p-4 transition-colors duration-200 hover:border-muted/50 hover:bg-raised active:bg-raised has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-accent sm:p-5"
   >
     <img
       v-if="image"
@@ -26,13 +26,13 @@ const image = findImage(`projects/${props.project.id}`)
 
     <div class="min-w-0 flex-1">
       <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 class="font-semibold text-text">{{ project.title }}</h3>
+        <h3 class="min-w-0 font-semibold text-text wrap-anywhere">{{ project.title }}</h3>
         <p v-if="project.meta" class="font-mono text-xs text-muted">{{ project.meta }}</p>
       </div>
       <p class="mt-1.5 text-sm text-muted">{{ project.summary }}</p>
 
       <div class="mt-4 flex flex-wrap items-end justify-between gap-3">
-        <TagList :tags="project.tags" :limit="4" />
+        <TagList v-if="project.tags.length" :tags="project.tags" :limit="4" />
         <button
           type="button"
           class="inline-flex items-center gap-1 font-mono text-xs text-accent focus-visible:outline-none after:absolute after:inset-0 after:rounded-xl after:content-['']"

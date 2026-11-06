@@ -79,7 +79,7 @@ function onClick(event) {
     <div v-if="item" class="flex max-h-[inherit] flex-col">
       <header class="flex items-start justify-between gap-4 border-b border-line px-5 py-4 sm:px-6 sm:py-5">
         <div class="min-w-0 pt-1">
-          <h2 id="detail-title" class="text-xl font-semibold text-text sm:text-2xl">{{ item.title }}</h2>
+          <h2 id="detail-title" class="text-xl font-semibold text-text sm:text-2xl wrap-anywhere">{{ item.title }}</h2>
           <p v-if="item.meta" class="mt-1 font-mono text-xs text-muted">{{ item.meta }}</p>
         </div>
         <button
@@ -93,8 +93,8 @@ function onClick(event) {
       </header>
 
       <!-- only this middle part scrolls when the content is taller than the screen -->
-      <div class="overflow-y-auto px-5 py-5 sm:px-6">
-        <div class="space-y-3 text-text">
+      <div class="overflow-y-auto overscroll-contain px-5 py-5 sm:px-6">
+        <div class="space-y-3 text-text wrap-anywhere">
           <p v-for="(paragraph, index) in item.details.length ? item.details : [item.summary]" :key="index">
             {{ paragraph }}
           </p>
@@ -106,14 +106,14 @@ function onClick(event) {
         </section>
 
         <ul v-if="item.links.length" class="mt-6 flex flex-wrap gap-2">
-          <li v-for="link in item.links" :key="link.url">
+          <li v-for="link in item.links" :key="link.url" class="max-w-full">
             <a
               :href="link.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-line bg-raised px-3.5 text-sm text-text transition-colors hover:border-accent/50 hover:text-accent"
+              class="inline-flex min-h-11 max-w-full items-center gap-2 rounded-lg border border-line bg-raised px-3.5 py-2 text-sm wrap-anywhere text-text transition-colors hover:border-accent/50 hover:text-accent"
             >
-              <BaseIcon :name="link.icon" class="size-4.5" />
+              <BaseIcon :name="link.icon" class="size-4.5 shrink-0" />
               {{ link.label }}
               <span class="sr-only">(abre numa nova janela)</span>
             </a>
@@ -129,7 +129,7 @@ function onClick(event) {
       <footer class="flex justify-end border-t border-line px-5 py-4 sm:px-6">
         <button
           type="button"
-          class="min-h-11 rounded-lg bg-accent px-5 font-medium text-on-accent transition-[filter] hover:brightness-110"
+          class="min-h-11 rounded-lg bg-accent px-5 font-medium text-on-accent transition-[filter,scale] duration-150 hover:brightness-110 active:scale-[0.97]"
           @click="emit('close')"
         >
           Fechar

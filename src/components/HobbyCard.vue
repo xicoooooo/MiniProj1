@@ -14,20 +14,19 @@ const image = findImage(`hobbies/${props.hobby.id}`)
 <template>
   <!-- same stretched button pattern as ProjectCard: the whole card opens the detail -->
   <article
-    class="group relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-surface transition-colors duration-200 hover:border-muted/50 hover:bg-raised has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-accent"
+    class="group relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-surface transition-colors duration-200 hover:border-muted/50 hover:bg-raised active:bg-raised has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-accent"
   >
-    <img v-if="image" :src="image" alt="" class="aspect-[16/9] w-full border-b border-line object-cover" />
+    <img v-if="image" :src="image" alt="" class="aspect-video w-full border-b border-line object-cover" />
 
     <div class="flex flex-1 flex-col p-5 sm:p-6">
-      <span
-        v-if="!image"
-        aria-hidden="true"
-        class="grid size-11 place-items-center rounded-lg border border-line bg-raised text-accent transition-colors group-hover:border-accent/40"
-      >
-        <BaseIcon :name="hobby.icon" class="size-5.5" />
-      </span>
-
-      <h2 class="text-lg font-semibold text-text" :class="image ? 'mt-0' : 'mt-5'">{{ hobby.title }}</h2>
+      <div class="flex items-start justify-between gap-4">
+        <h2 class="min-w-0 text-lg font-semibold text-text wrap-anywhere">{{ hobby.title }}</h2>
+        <BaseIcon
+          v-if="!image"
+          :name="hobby.icon"
+          class="mt-0.5 size-6 shrink-0 text-accent transition-transform duration-500 ease-out-expo group-hover:-rotate-6"
+        />
+      </div>
       <p class="mt-2 flex-1 text-muted">{{ hobby.summary }}</p>
 
       <button

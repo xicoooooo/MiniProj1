@@ -8,7 +8,7 @@ const photo = findImage('profile')
 </script>
 
 <template>
-  <section aria-labelledby="who-am-i-title" class="grid items-start gap-10 md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] md:gap-14 lg:gap-20">
+  <section aria-labelledby="who-am-i-title" class="grid grid-cols-1 items-start gap-10 md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] md:gap-14 lg:gap-20">
     <!-- photo with a dot-grid plate offset behind it -->
     <div class="relative mx-auto w-full max-w-64 md:max-w-none">
       <div
@@ -84,8 +84,8 @@ const photo = findImage('profile')
                   :rel="contact.external ? 'noopener noreferrer' : undefined"
                   class="group inline-flex min-h-11 items-center gap-2.5 text-text transition-colors hover:text-accent"
                 >
-                  <BaseIcon :name="contact.icon" class="size-5 text-muted transition-colors group-hover:text-accent" />
-                  <span class="underline decoration-line underline-offset-4 group-hover:decoration-accent">{{ contact.label }}</span>
+                  <BaseIcon :name="contact.icon" class="size-5 shrink-0 text-muted transition-colors group-hover:text-accent" />
+                  <span class="min-w-0 underline decoration-line underline-offset-4 group-hover:decoration-accent [overflow-wrap:anywhere]">{{ contact.label }}</span>
                   <span v-if="contact.external" class="sr-only">(abre numa nova janela)</span>
                 </a>
               </li>

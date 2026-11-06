@@ -11,7 +11,7 @@ import WhoAmIView from './views/WhoAmIView.vue'
 import WhatIDoView from './views/WhatIDoView.vue'
 import HobbiesView from './views/HobbiesView.vue'
 
-// view id (URL fragment) → component shown in the central area
+// view id (URL fragment) -> component shown in the central area
 const viewComponents = {
   'quem-sou-eu': WhoAmIView,
   'o-que-faco': WhatIDoView,
@@ -62,7 +62,7 @@ function onViewEnter(el, done) {
 </script>
 
 <template>
-  <div class="flex min-h-dvh flex-col">
+  <div class="flex min-h-svh flex-col">
     <!-- skip link: moves focus with JS so it never changes the #/ route in the URL -->
     <a
       href="#main-content"

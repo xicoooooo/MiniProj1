@@ -53,6 +53,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%; /* no font inflation in landscape on phones */
     scrollbar-color: var(--color-line) var(--color-bg);
     /* reserve the scrollbar space so the layout does not shift between short and long views */
     scrollbar-gutter: stable;
@@ -60,6 +61,28 @@
 
   body {
     line-height: 1.6;
+    /* viewport-fit=cover: keep content clear of the notch in landscape */
+    padding-inline: env(safe-area-inset-left, 0px) env(safe-area-inset-right, 0px);
+  }
+
+  /* controls: fire taps immediately (no double-tap-zoom wait) and do not select their label on long-press
+     (content links such as the email stay selectable) */
+  a,
+  button {
+    touch-action: manipulation;
+  }
+
+  button,
+  nav a {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* body copy: avoid a single word alone on the last line */
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
   }
 
   h1,

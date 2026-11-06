@@ -11,7 +11,7 @@ defineProps({
     <li
       v-for="tag in tags.slice(0, limit)"
       :key="tag"
-      class="rounded-md border border-line bg-raised px-2 py-0.5 font-mono text-xs text-muted"
+      class="max-w-full rounded-md border border-line bg-raised px-2 py-0.5 font-mono text-xs text-muted wrap-anywhere"
     >
       {{ tag }}
     </li>
