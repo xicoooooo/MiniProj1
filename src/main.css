@@ -54,6 +54,8 @@
     text-rendering: optimizeLegibility;
     -webkit-tap-highlight-color: transparent;
     scrollbar-color: var(--color-line) var(--color-bg);
+    /* reserve the scrollbar space so the layout does not shift between short and long views */
+    scrollbar-gutter: stable;
   }
 
   body {

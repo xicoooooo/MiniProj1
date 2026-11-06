@@ -6,10 +6,27 @@ import { views } from './data/navigation.js'
 import { profile } from './data/profile.js'
 import { useHashRoute } from './composables/useHashRoute.js'
 import { viewIn, viewOut } from './utils/motion.js'
+import WhoAmIView from './views/WhoAmIView.vue'
+import WhatIDoView from './views/WhatIDoView.vue'
+import HobbiesView from './views/HobbiesView.vue'
+
+// view id (URL fragment) → component shown in the central area
+const viewComponents = {
+  'quem-sou-eu': WhoAmIView,
+  'o-que-faco': WhatIDoView,
+  hobbies: HobbiesView,
+}
 
 // activeView follows the URL fragment (#/…), including Back/Forward
 const { activeView } = useHashRoute()
 const mainContent = ref(null)
+
+// project or hobby chosen in a card; the reusable modal that shows it arrives in phase 5
+const selectedItem = ref(null)
+
+function openDetail(item) {
+  selectedItem.value = item
+}
 
 const activeLabel = computed(() => views.find((view) => view.id === activeView.value).label)
 
@@ -49,11 +66,8 @@ function onViewEnter(el, done) {
     <main ref="mainContent" id="main-content" tabindex="-1" class="mx-auto outline-none w-full max-w-6xl flex-1 px-4 py-12 sm:px-8 sm:py-16">
       <!-- only the central area changes; mode out-in: the old view leaves before the new one enters -->
       <Transition mode="out-in" :css="false" @enter="onViewEnter" @leave="viewOut">
-        <!-- placeholder until the views are built (Phase 4); each view's h1 needs tabindex="-1" to receive focus -->
-        <section :key="activeView">
-          <h1 tabindex="-1" class="text-3xl font-semibold text-text outline-none sm:text-4xl">{{ activeLabel }}</h1>
-          <p class="mt-4 max-w-prose text-muted">Conteúdo da vista em construção.</p>
-        </section>
+        <!-- each view's h1 has tabindex="-1" so it can receive focus -->
+        <component :is="viewComponents[activeView]" :key="activeView" @select="openDetail" />
       </Transition>
     </main>
 
