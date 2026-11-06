@@ -1,6 +1,6 @@
 # MiniProj1 - Currículo SPA
 
-Currículo pessoal de **Francisco Aragão Dias** desenvolvido como Single Page Application (SPA) em **Vue 3**, para a unidade curricular de Programação Web Avançada (Mestrado em Engenharia Informática e Tecnologia Web — UTAD / Universidade Aberta).
+Currículo pessoal de **Francisco Aragão Dias** desenvolvido como Single Page Application (SPA) em **Vue 3**, para a unidade curricular de Programação Web Avançada (Mestrado em Engenharia Informática e Tecnologia Web - UTAD / Universidade Aberta).
 
 ## Ver o resultado
 
@@ -19,3 +19,8 @@ npm run build   # gerar docs/index.html (ficheiro único)
 ## Tecnologias
 
 Vue 3 (Composition API, `<script setup>`) · Vite · Tailwind CSS · Motion · vite-plugin-singlefile
+
+## Créditos
+
+- Ícones: [Tabler Icons](https://tabler.io/icons) (licença MIT).
+- Fontes: IBM Plex Sans e JetBrains Mono (SIL Open Font License), via Fontsource.
