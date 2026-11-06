@@ -2,7 +2,7 @@
 import HobbyCard from '../components/HobbyCard.vue'
 import { hobbies } from '../data/cv.js'
 
-// a selected hobby is passed up to App, which opens the same reusable modal as the projects (phase 5)
+// a selected hobby is passed up to App, which opens the same reusable modal as the projects
 defineEmits(['select'])
 </script>
 

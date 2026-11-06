@@ -2,7 +2,7 @@
 import ProjectCard from '../components/ProjectCard.vue'
 import { projects, skills, education, certificates } from '../data/cv.js'
 
-// a selected project is passed up to App, which opens the reusable modal (phase 5)
+// a selected project is passed up to App, which opens the reusable modal
 defineEmits(['select'])
 </script>
 

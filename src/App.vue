@@ -2,6 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
+import DetailModal from './components/DetailModal.vue'
 import { views } from './data/navigation.js'
 import { profile } from './data/profile.js'
 import { useHashRoute } from './composables/useHashRoute.js'
@@ -21,12 +22,22 @@ const viewComponents = {
 const { activeView } = useHashRoute()
 const mainContent = ref(null)
 
-// project or hobby chosen in a card; the reusable modal that shows it arrives in phase 5
+// reusable modal: isModalOpen controls whether it is open, selectedItem what it shows (project or hobby)
+const isModalOpen = ref(false)
 const selectedItem = ref(null)
 
 function openDetail(item) {
   selectedItem.value = item
+  isModalOpen.value = true
 }
+
+// selectedItem is kept after closing so the content stays visible during the exit animation
+function closeDetail() {
+  isModalOpen.value = false
+}
+
+// changing view (e.g. the Back button) closes the modal
+watch(activeView, closeDetail)
 
 const activeLabel = computed(() => views.find((view) => view.id === activeView.value).label)
 
@@ -72,5 +83,7 @@ function onViewEnter(el, done) {
     </main>
 
     <AppFooter />
+
+    <DetailModal :open="isModalOpen" :item="selectedItem" @close="closeDetail" />
   </div>
 </template>

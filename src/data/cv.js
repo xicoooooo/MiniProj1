@@ -1,4 +1,4 @@
-// projects and hobbies share the same shape so the reusable modal (phase 5) can show either:
+// projects and hobbies share the same shape so the reusable modal (DetailModal) can show either:
 // { id, title, summary, meta, tags, details, links, icon? }
 
 export const about = {
@@ -127,15 +127,19 @@ export const certificates = [
   { name: 'EF SET English Certificate (C2 Proficient)', issuer: 'EF SET' },
 ]
 
-// TODO: `details` still need the user's own words for each hobby (used by the modal in phase 5)
+// hobbies use `tagsLabel` because their tags are highlights, not technologies
 export const hobbies = [
   {
     id: 'tecnologia',
     title: 'Tecnologia',
     summary: 'Tecnologia, programação e exploração de novas ferramentas.',
     icon: 'code',
-    tags: [],
-    details: [],
+    tagsLabel: 'Em destaque',
+    tags: ['Backend', 'Cloud', 'Inteligência artificial'],
+    details: [
+      'Gosto de acompanhar o que vai surgindo na tecnologia e de experimentar ferramentas novas por iniciativa própria.',
+      'Os temas que mais me puxam são sistemas backend, cloud e inteligência artificial, e foi por esse caminho que cheguei às certificações da AWS e aos cursos da Anthropic sobre Model Context Protocol.',
+    ],
     links: [],
   },
   {
@@ -143,17 +147,25 @@ export const hobbies = [
     title: 'Projetos pessoais',
     summary: 'Ideias e desenvolvimento de projetos próprios.',
     icon: 'bulb',
+    tagsLabel: 'Em destaque',
     tags: [],
-    details: [],
-    links: [],
+    details: [
+      'Grande parte do que aprendo vem de construir coisas fora das aulas: uma ideia passa a protótipo e, se resistir, a projeto completo.',
+      'O Banca, um casino social com agentes de IA, e o meu portefólio 3D nasceram assim.',
+    ],
+    links: [{ label: 'Perfil no GitHub', url: 'https://github.com/xicoooooo', icon: 'github' }],
   },
   {
     id: 'padel',
     title: 'Padel',
     summary: 'Cerca de 10 anos de prática, os últimos 4 com maior foco competitivo.',
     icon: 'ball-tennis',
-    tags: [],
-    details: [],
+    tagsLabel: 'Em destaque',
+    tags: ['~10 anos', 'Competição'],
+    details: [
+      'Jogo padel há cerca de 10 anos e, nos últimos 4, com um foco mais competitivo.',
+      'É o meu contrapeso ao ecrã: obriga a ler o jogo, a decidir depressa e a jogar em equipa com o parceiro.',
+    ],
     links: [],
   },
 ]

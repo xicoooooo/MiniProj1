@@ -74,6 +74,29 @@
     color: var(--color-text);
   }
 
+  /* dimmed background behind an open <dialog>; fades in on open and out while closing */
+  dialog::backdrop {
+    background-color: rgb(4 6 9 / 0.72);
+    transition: opacity 200ms ease-out;
+  }
+
+  @starting-style {
+    dialog[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  dialog[data-closing]::backdrop {
+    opacity: 0;
+    transition-duration: 140ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    dialog::backdrop {
+      transition: none;
+    }
+  }
+
   /* Visible keyboard focus everywhere (never removed, only themed). */
   :focus-visible {
     outline: 2px solid var(--color-accent);
