@@ -28,3 +28,19 @@ export function dropOut(el, done) {
     { duration: 0.16, ease: 'easeIn' },
   ).then(done)
 }
+
+// view change: the new view rises gently into place, the old one just fades (exit faster than enter)
+
+export function viewIn(el, done) {
+  if (prefersReducedMotion()) return done()
+  animate(
+    el,
+    { opacity: [0, 1], transform: ['translateY(8px)', 'translateY(0)'] },
+    { duration: 0.32, ease: easeOutExpo },
+  ).then(done)
+}
+
+export function viewOut(el, done) {
+  if (prefersReducedMotion()) return done()
+  animate(el, { opacity: [1, 0] }, { duration: 0.12, ease: 'easeIn' }).then(done)
+}

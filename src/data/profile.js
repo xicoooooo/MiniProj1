@@ -9,5 +9,5 @@ export const socialLinks = [
   { id: 'instagram', label: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/francisco.bdias/' },
   { id: 'github', label: 'GitHub', icon: 'github', url: 'https://github.com/xicoooooo' },
   { id: 'linkedin', label: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/francisco-dias-78bb13205/'},
-  { id: 'x', label: 'X', icon: 'x-brand', url: 'https://x.com/franciscobdias_?t=SMkqDqdHQA-Y6qWXKRr-pg' },
+  { id: 'x', label: 'X', icon: 'x-brand', url: 'https://x.com/franciscobdias_' },
 ]
